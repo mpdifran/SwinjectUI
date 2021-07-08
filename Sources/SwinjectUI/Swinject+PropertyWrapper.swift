@@ -11,13 +11,13 @@ import Swinject
 
 @available(iOS 13.0, *)
 @propertyWrapper
-struct Swinject<Service> {
-    var wrappedValue: Service?
+public struct Swinject<Service> {
+    public var wrappedValue: Service?
 
     @Environment(\.swinjectAssembler) var assembler: Assembler
     @Environment(\.swinjectContainer) var container: Container
 
-    init(_ serviceType: Service.Type) {
+    public init(_ serviceType: Service.Type) {
         let assemblerService = assembler.resolver.resolve(serviceType)
         let containerService = container.resolve(serviceType)
 
